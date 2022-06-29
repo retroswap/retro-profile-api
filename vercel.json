@@ -1,0 +1,105 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/api/version",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/users/:address",
+      "destination": "/api/users"
+    },
+    {
+      "source": "/api/users/valid/:username",
+      "destination": "/api/users/valid"
+    },
+    {
+      "source": "/api/cron/refreshLeaderboard/:competitionId",
+      "destination": "/api/cron/refreshLeaderboard"
+    },
+    {
+      "source": "/api/cron/refreshSpecificTokenLeaderboard/:competitionId",
+      "destination": "/api/cron/refreshSpecificTokenLeaderboard"
+    },
+    {
+      "source": "/api/leaderboard/:competitionId/global",
+      "destination": "/api/leaderboard/global"
+    },
+    {
+      "source": "/api/leaderboard/:competitionId/team/:teamId",
+      "destination": "/api/leaderboard/team"
+    },
+    {
+      "source": "/api/leaderboard/:competitionId/team/:teamId/group/:rewardGroup",
+      "destination": "/api/leaderboard/team"
+    },
+    {
+      "source": "/api/leaderboard/team/:teamId",
+      "destination": "/api/leaderboard/team"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Accept, Content-Type, Origin"
+        },
+        {
+          "key": "Access-Control-Max-Age",
+          "value": "86400"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=60, s-maxage=60"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/api/users/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Accept, Content-Type, Origin"
+        },
+        {
+          "key": "Access-Control-Max-Age",
+          "value": "86400"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
+}
